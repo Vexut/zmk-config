@@ -22,7 +22,7 @@
             tapping_term_ms = <200>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp A &kp A>;  // Example, will be used via AS()
         };
     };
 
