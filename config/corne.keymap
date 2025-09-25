@@ -8,118 +8,117 @@
     };
 
     combos {
-    compatible = "zmk,combos";
+        compatible = "zmk,combos";
 
-    combo_esc {
-        timeout-ms = <50>;
-        key-positions = <0 1 2>; // Top row left-most keys
-        bindings = <&kp ESCAPE>;
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1 2>; // Top row left-most keys
+            bindings = <&kp ESCAPE>;
+        };
+
+        combo_tab {
+            timeout-ms = <50>;
+            key-positions = <10 11 12>; // Top row right-most keys
+            bindings = <&kp TAB>;
+        };
+
+        combo_bksp {
+            timeout-ms = <50>;
+            key-positions = <20 21 22>; // Home row right side
+            bindings = <&kp BACKSPACE>;
+        };
+
+        combo_shift {
+            timeout-ms = <50>;
+            key-positions = <25 26 27>; // Bottom row left-side mod keys
+            bindings = <&kp LEFT_SHIFT>;
+        };
+
+        combo_rshift {
+            timeout-ms = <50>;
+            key-positions = <32 33 34>; // Bottom row right-side mod keys
+            bindings = <&kp RIGHT_SHIFT>;
+        };
+
+        combo_delete {
+            timeout-ms = <50>;
+            key-positions = <15 16 17>; // Somewhere near center (adjust if needed)
+            bindings = <&kp DELETE>;
+        };
+
+        // Example symbol combos
+        combo_exclm {
+            key-positions = <0 10>; // Q + P (top left + top right)
+            bindings = <&kp EXCLAMATION>;
+        };
+
+        combo_at {
+            key-positions = <1 11>; // W + ; 
+            bindings = <&kp AT_SIGN>;
+        };
+
+        combo_hash {
+            key-positions = <2 12>; // E + rightmost key
+            bindings = <&kp HASH>;
+        };
+
+        combo_dllr {
+            key-positions = <3 13>;
+            bindings = <&kp DOLLAR>;
+        };
+
+        combo_percnt {
+            key-positions = <4 14>;
+            bindings = <&kp PERCENT>;
+        };
+
+        combo_caret {
+            key-positions = <5 15>;
+            bindings = <&kp CARET>;
+        };
+
+        combo_amp {
+            key-positions = <6 16>;
+            bindings = <&kp AMPERSAND>;
+        };
+
+        combo_ast {
+            key-positions = <7 17>;
+            bindings = <&kp ASTERISK>;
+        };
+
+        combo_lparen {
+            key-positions = <8 18>;
+            bindings = <&kp LPAR>;
+        };
+
+        combo_rparen {
+            key-positions = <9 19>;
+            bindings = <&kp RPAR>;
+        };
+
+        system_reset {
+            key-positions = <2 3 4 11>; // Example keys for sys reset
+            bindings = <&sys_reset>;
+        };
+
+        bootloader {
+            key-positions = <12 13 14 25>; // Example bootloader combo keys
+            bindings = <&bootloader>;
+        };
+
+        system_layer_combo {
+            key-positions = <30 31 32>;
+            bindings = <&mo 3>;
+        };
     };
 
-    combo_tab {
-        timeout-ms = <50>;
-        key-positions = <10 11 12>; // Top row right-most keys
-        bindings = <&kp TAB>;
-    };
-
-    combo_bksp {
-        timeout-ms = <50>;
-        key-positions = <20 21 22>; // Home row right side
-        bindings = <&kp BACKSPACE>;
-    };
-
-    combo_shift {
-        timeout-ms = <50>;
-        key-positions = <25 26 27>; // Bottom row left-side mod keys
-        bindings = <&kp LEFT_SHIFT>;
-    };
-
-    combo_rshift {
-        timeout-ms = <50>;
-        key-positions = <32 33 34>; // Bottom row right-side mod keys
-        bindings = <&kp RIGHT_SHIFT>;
-    };
-
-    combo_delete {
-        timeout-ms = <50>;
-        key-positions = <15 16 17>; // Somewhere near center (adjust if needed)
-        bindings = <&kp DELETE>;
-    };
-
-    // Example symbol combos
-    combo_exclm {
-        key-positions = <0 10>; // Q + P (top left + top right)
-        bindings = <&kp EXCLAMATION>;
-    };
-
-    combo_at {
-        key-positions = <1 11>; // W + ; 
-        bindings = <&kp AT_SIGN>;
-    };
-
-    combo_hash {
-        key-positions = <2 12>; // E + rightmost key
-        bindings = <&kp HASH>;
-    };
-
-    combo_dllr {
-        key-positions = <3 13>;
-        bindings = <&kp DOLLAR>;
-    };
-
-    combo_percnt {
-        key-positions = <4 14>;
-        bindings = <&kp PERCENT>;
-    };
-
-    combo_caret {
-        key-positions = <5 15>;
-        bindings = <&kp CARET>;
-    };
-
-    combo_amp {
-        key-positions = <6 16>;
-        bindings = <&kp AMPERSAND>;
-    };
-
-    combo_ast {
-        key-positions = <7 17>;
-        bindings = <&kp ASTERISK>;
-    };
-
-    combo_lparen {
-        key-positions = <8 18>;
-        bindings = <&kp LPAR>;
-    };
-
-    combo_rparen {
-        key-positions = <9 19>;
-        bindings = <&kp RPAR>;
-    }
-
-    system_reset {
-        key-positions = <2 3 4 11>; // Example keys for sys reset
-        bindings = <&sys_reset>;
-    };
-
-    bootloader {
-        key-positions = <12 13 14 25>; // Example bootloader combo keys
-        bindings = <&bootloader>;
-    };
-
-    system_layer_combo {
-        key-positions = <30 31 32>;
-        bindings = <&mo 3>;
-    };
-};
-
-
-     conditional_layers { compatible = "zmk,conditional-layers"; };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 
     keymap {
         compatible = "zmk,keymap";
 
-       qwerty_layer {
+        qwerty_layer {
             bindings = <
   &kp Q  &kp W  &kp E          &kp R         &kp T          &kp Y        &kp U                     &kp I              &kp O    &kp P     
   &kp A  &kp S  &kp D          &kp F         &kp G          &kp H        &kp J                     &kp K              &kp L    &kp SEMI  
@@ -154,6 +153,5 @@
                                       &trans        &trans        &trans          &trans  &trans  &trans
             >;
         };
-
-
+    };
 };
