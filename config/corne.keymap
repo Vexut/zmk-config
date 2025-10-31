@@ -14,17 +14,28 @@
 / {
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
-        zmk,keymap = &default_layer;  // lisätty: aseta oletuslayer
     };
 
-&mt {
-    tapping-term-ms = <400>;
-    quick-tap-ms = <175>;
-    require-prior-idle-ms = <150>;
-    flavor = "balanced";
-};
+    behaviors {
+       mt: mod_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <400>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
+            display-name = "Mod-Tap";
 
-&lt { tapping-term-ms = <400>; };
+         lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <400>;
+            bindings = <&mo>, <&kp>;
+            display-name = "Layer-Tap";
+        };
+    };
 
   combos {
         compatible = "zmk,combos";
@@ -167,6 +178,7 @@
                                           &trans        &trans        &trans          &trans  &trans  &trans
                 >;
         };
+
                 extra_1 {
                         status = "reserved";
                 };
