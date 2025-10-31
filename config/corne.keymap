@@ -10,9 +10,11 @@
 
 
 #define AS(keycode) &as LS(keycode) keycode
+
 / {
     chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
+        zmk,keymap = &default_layer;  // lisätty: aseta oletuslayer
     };
 
 &mt {
