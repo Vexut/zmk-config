@@ -8,7 +8,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-
 #define AS(keycode) &as LS(keycode) keycode
 
 / {
@@ -161,31 +160,31 @@
 
         lower_layer {
             // -----------------------------------------------------------------------------------------
-            // | 1  | 2  | 3  | 4  | 5  |     | <   | [   | {   | (   | ;  |
-            // | 6  | 7  | 8  | 9  | 0  |     | ←   | ↓   | ↑   | →   | '  |
-            // | \  | -  | =  | /  | *  |     | >   | ]   | }   | )   | `  |
+            // | !     |  @  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  (  |  )  |
+            // | BT1   | BT2 | BT3 | BT4 | BT5 |     | LFT | DWN |  UP | RGT |     |
+            // | BTCLR |     |     |     |     |     |     |     |     |     |     |
             //           | GUI |     | SPC |     | ENT | ESC | TAB |
             display-name = "Lower";
             bindings = <
-   &kp N1     &kp N2     &kp N3     &kp N4     &kp N5       &kp LESS_THAN  &kp LBKT   &kp LBRC   &kp LPAR   &kp SEMI
-   &kp N6     &kp N7     &kp N8     &kp N9     &kp N0       &kp LEFT       &kp DOWN   &kp UP     &kp RIGHT  &kp SQT
-   &kp BSLH   &kp MINUS  &kp EQUAL  &kp SLASH  &kp ASTERISK  &kp GREATER_THAN &kp RBKT &kp RBRC   &kp RPAR   &kp GRAVE
-                                  &kp LGUI   &trans     &kp SPACE    AS(RET)    &trans      &kp ESC   &kp TAB
+   &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR
+   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT  &kp DOWN  &kp UP          &kp RIGHT &trans 
+   &bt BT_CLR   &trans       &trans       &trans       &trans           &trans    &trans    &trans          &trans    &trans 
+                             &kp LGUI     &trans       &kp SPACE        AS(RET)   &kp ESC   &kp TAB
             >;
         };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
-            // | SP   |  ↑   | ENT  | PGUP | VOL+ |     | F1  | F4  | F7  | F10 |
-            // | ←    |  ↓   | →    | HOME | MUTE |     | F2  | F5  | F8  | F11 |
-            // | INS  | PRSC | SCRL | PGDN | VOL- |     | F3  | F6  | F9  | F12 |
-            //           | GUI |     | SPC |     | ENT |     | TAB |
+            // | 1! |  2@ |  3# |  4$ |  5% |     |  6^ |  7& |  8* |  9(  |  0)  |
+            // | -_ |  =+ |  {  |  [  |  (  |     |  )  |  ]  |  }  |  /?  |  \|  |
+            // | `~ |     |     |  ,< |  :  |     |  ;  |  .> | CTRL| META |      |
+            //           | GUI | ESC | SPC |     | ENT |     | TAB |
             display-name = "Raise";
             bindings = <
-   &kp SPACE  &kp UP_ARROW   &kp ENTER     &kp PAGE_UP   &kp C_VOL_UP   &kp C_BRIGHTNESS_INC  &kp F1  &kp F4  &kp F7  &kp F10
-   &kp LEFT   &kp DOWN       &kp RIGHT     &kp HOME      &kp C_MUTE     &kp C_PLAY_PAUSE      &kp F2  &kp F5  &kp F8  &kp F11
-   &kp INS    &kp PRINTSCREEN &kp SCROLLLOCK &kp PAGE_DOWN &kp C_VOL_DN    &kp C_BRIGHTNESS_DEC  &kp F3  &kp F6  &kp F9  &kp F12
-                                  &kp LGUI   &trans     &kp SPACE    AS(RET)    &trans      &kp TAB
+   AS(N1)    AS(N2)    AS(N3)    AS(N4)    AS(N5)        AS(N6)    AS(N7)    AS(N8)    AS(N9)   AS(N0)
+   AS(MINUS) AS(EQUAL) &kp LBRC  &kp LBKT  &kp LPAR      &kp RPAR  &kp RBKT  &kp RBRC  AS(FSLH) AS(BSLH)
+   AS(GRAVE) &trans    &trans    AS(COMMA) &kp COLON     &kp SEMI  AS(DOT)   &kp LCTRL &kp RALT &trans
+                       &kp LGUI  &kp ESC   &kp SPACE     AS(RET)   &trans    &kp TAB
             >;
         };
 
@@ -200,7 +199,7 @@
    &bt BT_CLR    &bt BT_CLR_ALL  &bt BT_PRV    &bt BT_NXT    &trans      &none   &trans  &trans  &trans  &trans
    &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans  &none   &none   &none   &none
    &bootloader    &sys_reset     &none         &none         &none        &none   &trans  &trans  &trans  &trans
-                                  &kp LGUI   &trans     &kp SPACE    AS(RET)    &trans      &kp ESC
+                             &kp LGUI     &trans       &kp SPACE        AS(RET)   &trans   &kp ESC
             >;
         };
 
